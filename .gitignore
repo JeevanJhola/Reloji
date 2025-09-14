@@ -1,41 +1,18 @@
-# Prerequisites
-*.d
+# dependencies
+node_modules/
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# Precompiled Headers
-*.gch
-*.pch
+# environment files
+.env
 
-# Linker files
-*.ilk
+# OS/system files
+.DS_Store
+Thumbs.db
 
-# Debugger Files
-*.pdb
+# Optional lockfiles
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
 
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
-
-# debug information files
-*.dwo
