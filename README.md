@@ -1,75 +1,74 @@
-# 🛍️ Reloji
+# 🛍️ Reloji - MERN E-commerce Project
 
-Reloji is our team’s e-commerce project built with the **MERN stack** (MongoDB, Express, React, Node.js).  
-This repository currently contains the **backend server setup** using Express and a static frontend served from the `public/` folder.
-
----
+Reloji is an e-commerce project built with the **MERN stack** (MongoDB, Express, React, Node.js).
 
 ## Project Structure
 
 ```
 .
-├── public/
-│   └── index.html  # Frontend for the application
-├── .gitignore      # Files to be ignored by Git
-├── package.json    # Project metadata and dependencies
-├── README.md       # Project documentation
-└── server.js       # Main server file
+├── client/         # React frontend application
+│   ├── src/
+│   ├── package.json
+│   └── vite.config.js
+├── server/         # Express backend server
+│   ├── server.js
+│   └── package.json
+├── package.json    # Root with npm workspaces
+├── package-lock.json
+├── .gitignore
+└── README.md
+
 ```
 
 ### Prerequisites
 
-*   [Node.js](https://nodejs.org/) (which includes npm)
+*   [Node.js](https://nodejs.org/) (v18 or higher recommended)
+*   [npm](https://www.npmjs.com/) (comes with Node.js)
+*   [MongoDB](https://www.mongodb.com/try/download/community) (or a [MongoDB Atlas](https://www.mongodb.com/atlas/database) account)
 
-To install Node.js and npm, download the installer from the [official Node.js website](https://nodejs.org/) and follow the setup instructions for your operating system.
+### Setup
 
-### Installation
-
-1.  Clone the repository:
+1.  **Clone the repository:**
     ```bash
     git clone https://github.com/JeevanJhola/Reloji.git
-    ```
-2.  Navigate to the project directory:
-    ```bash
     cd Reloji
     ```
-    
-3.  Install the dependencies:
+
+2.  **Install dependencies for both client & server: **
     ```bash
     npm install
     ```
 
-This will download the packages listed in `package.json` into the `node_modules` directory.
-
-## Usage
-
-To run the application, you can use the following scripts defined in `package.json`:
-
-*   **Start the server:**
-    
+3.  **Configure environment variables:**
+    Create a `.env` file inside the `server/` directory:
     ```bash
-    npm start
+    PORT=5000
+    MONGO_URI=mongodb://localhost:27017/reloji
     ```
-    
-    This will run the `server.js` file using Node.js.
-    
-*   **Start the server in development mode:**
-    
-    ```bash
-    npm run dev
-    ```
-    
-    This uses `nodemon` to automatically restart the server whenever you make changes to the code.
-    
 
-Once the server is running, you can access the application by navigating to `http://localhost:5000` in your web browser.
+## Running the Application in Development
 
-### Contributing
+Run both backend (Express) and frontend (React + Vite) together:
 
-1. Create a new branch (git checkout -b feature-branch)
+```bash
+npm run dev
+```
+- Backend → http://localhost:5000
+- Frontend → http://localhost:5173
 
-2. Commit changes (git commit -m 'Add new feature')
+## Available Scripts
 
-3. Push to branch (git push origin feature-branch)
+### Root
+- npm run dev → Start both frontend & backend (development)
+- npm run build → Build frontend for production
+- npm start → Start backend server (production)
 
-4. Open a Pull Request
+### Server (server/)
+- npm run dev → Start backend with Nodemon
+- npm start → Start backend with Node
+
+### Client (client/)
+- npm run dev → Start Vite development server
+- npm run build → Build React app
+- npm run preview → Preview production build locally
+- npm run lint → Run ESLint

@@ -1,0 +1,36 @@
+{
+  "name": "relogi-server",
+  "version": "1.0.0",
+  "description": "Backend API for Relogi E-Commerce Project",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JeevanJhola/Reloji.git"
+  },
+  "keywords": [
+    "relogi",
+    "e-commerce",
+    "backend",
+    "express",
+    "mongodb"
+  ],
+  "author": "Your Name / Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JeevanJhola/Reloji/issues"
+  },
+  "homepage": "https://github.com/JeevanJhola/Reloji#readme",
+  "dependencies": {
+    "dotenv": "^16.6.1",
+    "express": "^5.1.0",
+    "mongoose": "^8.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
