@@ -1,0 +1,34 @@
+import ReusableButton from "./ReusableButton"
+
+export default function Header() {
+  return (
+    <header className="bg-white shadow-sm">
+      <div className="px-4">
+        <div className="flex items-center justify-between h-16">
+          <h1 className="text-3xl font-bold text-blue-600">Reloji</h1>
+
+          <div className="flex items-center space-x-3">
+            {/* Plus button */}
+            <ReusableButton color="blue">
+              <svg
+                className="w-5 h-5"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                strokeWidth="2.5"
+                stroke="white"
+              >
+                <path strokeLinecap="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
+            </ReusableButton>
+
+            {/* User button */}
+            <ReusableButton color="gray">
+              <span className="text-lg font-semibold text-gray-600">U</span>
+            </ReusableButton>
+          </div>
+        </div>
+      </div>
+    </header>
+  )
+}
+
