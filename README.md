@@ -6,17 +6,30 @@ Reloji is an e-commerce project built with the **MERN stack** (MongoDB, Express,
 
 ```
 .
-├── client/         # React frontend application
-│   ├── src/
-│   ├── package.json
-│   └── vite.config.js
-├── server/         # Express backend server
-│   ├── server.js
-│   └── package.json
-├── package.json    # Root with npm workspaces
+├── client
+│   ├── eslint.config.js
+│   ├── index.html
+│   ├── package.json
+│   ├── src
+│   │   ├── App.jsx
+│   │   ├── components
+│   │   │   ├── assets
+│   │   │   │   ├── CategorySelect.jsx
+│   │   │   │   ├── ReusableButton.jsx
+│   │   │   │   └── SearchBar.jsx
+│   │   │   ├── Header.jsx
+│   │   │   └── Main.jsx
+│   │   ├── index.css
+│   │   └── main.jsx
+│   └── vite.config.js
+├── output.txt
 ├── package-lock.json
-├── .gitignore
-└── README.md
+├── package.json
+├── README.md
+└── server
+    ├── package-lock.json
+    ├── package.json
+    └── server.js
 
 ```
 

@@ -1,0 +1,27 @@
+.
+├── client
+│   ├── eslint.config.js
+│   ├── index.html
+│   ├── package.json
+│   ├── src
+│   │   ├── App.jsx
+│   │   ├── components
+│   │   │   ├── assets
+│   │   │   │   ├── CategorySelect.jsx
+│   │   │   │   ├── ReusableButton.jsx
+│   │   │   │   └── SearchBar.jsx
+│   │   │   ├── Header.jsx
+│   │   │   └── Main.jsx
+│   │   ├── index.css
+│   │   └── main.jsx
+│   └── vite.config.js
+├── output.txt
+├── package-lock.json
+├── package.json
+├── README.md
+└── server
+    ├── package-lock.json
+    ├── package.json
+    └── server.js
+
+6 directories, 19 files

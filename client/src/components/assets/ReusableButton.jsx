@@ -13,4 +13,4 @@ export default function ReusableButton({ color = "blue", children }) {
     </button>
   )
 }
-``
+
