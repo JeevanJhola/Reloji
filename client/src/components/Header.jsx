@@ -1,5 +1,7 @@
 import ReusableButton from "./assets/ReusableButton";
 import SearchBar from "./assets/SearchBar";
+import { Home, Compass, Users, User } from "lucide-react";
+import NavButton from "./assets/NavButton";
 
 export default function Header() {
   return (
@@ -38,6 +40,13 @@ export default function Header() {
           <SearchBar id="search-mobile" width="w-full" />
         </div>
       </div>
+      <nav className="flex flex-nowrap space-x-4 justify-evenly p-4 border-2">
+      <NavButton icon={Home} label="Home" />
+      <NavButton icon={Compass} label="Discover" />
+      <NavButton icon={Users} label="Circle" />
+      <NavButton icon={User} label="Profile" />
+    </nav>
+  
     </header>
   );
 }
