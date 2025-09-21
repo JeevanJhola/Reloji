@@ -16,5 +16,8 @@ export default defineConfig({
         secure: false,
       },
     },
+    allowedHosts: [
+      '.ngrok-free.app', // allow all ngrok tunnels
+    ],
   },
 })
