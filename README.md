@@ -22,7 +22,6 @@ Reloji is an e-commerce project built with the **MERN stack** (MongoDB, Express,
 │   │   ├── index.css
 │   │   └── main.jsx
 │   └── vite.config.js
-├── output.txt
 ├── package-lock.json
 ├── package.json
 ├── README.md
