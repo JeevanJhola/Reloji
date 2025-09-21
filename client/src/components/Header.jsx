@@ -1,6 +1,6 @@
 import ReusableButton from "./assets/ReusableButton";
 import SearchBar from "./assets/SearchBar";
-import { Home, Compass, Users, User } from "lucide-react";
+import { Plus, Home, Compass, Users, User } from "lucide-react";
 import NavButton from "./assets/NavButton";
 
 export default function Header() {
@@ -18,20 +18,12 @@ export default function Header() {
           <div className="flex items-center space-x-3">
             {/* Plus button */}
             <ReusableButton color="blue">
-              <svg
-                className="w-5 h-5"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                strokeWidth="2.5"
-                stroke="white"
-              >
-                <path strokeLinecap="round" d="M12 4.5v15m7.5-7.5h-15" />
-              </svg>
+              <Plus className="w-5 h-5 text-white" strokeWidth={2.5} />
             </ReusableButton>
 
             {/* User button */}
             <ReusableButton color="gray">
-              <span className="text-lg font-semibold text-gray-600">U</span>
+              <User className="w-5 h-5 text-gray-600" />
             </ReusableButton>
           </div>
         </div>
@@ -40,15 +32,11 @@ export default function Header() {
           <SearchBar id="search-mobile" width="w-full" />
         </div>
       </div>
-      <nav className="flex flex-nowrap space-x-4 justify-evenly p-4 border-2">
-      <NavButton icon={Home} label="Home" />
-      <NavButton icon={Compass} label="Discover" />
-      <NavButton icon={Users} label="Circle" />
-      <NavButton icon={User} label="Profile" />
-    </nav>
-  
+      <nav className="flex w-full pt-1.5 pb-1.5 border-t-4 border-gray-50">
+        <NavButton icon={Home} label="Home" />
+        <NavButton icon={Compass} label="Discover" />
+        <NavButton icon={Users} label="Circle" />
+      </nav>
     </header>
   );
 }
-
-

@@ -6,12 +6,12 @@ export default function NavButton({ icon: Icon, label }) {
   return (
     <button
       onClick={() => setActive(true)}
-      className={`flex min-w-0 items-center gap-2 px-2 py-1 border-b-4 border-transparent text-gray-700 transition
-        hover:text-blue-500 hover:border-blue-500
+      className={`flex flex-1 items-center justify-center gap-1 px-2 py-1 
+        border-b-4 border-transparent text-gray-700 hover:text-blue-500 hover:border-blue-500
         ${active ? "text-blue-500 border-blue-500" : ""}`}
-    >
-      <Icon className="w-5 h-5" />
-      <span>{label}</span>
+          >
+      <Icon className="w-5 h-5 flex-shrink-0" />
+      <span className="sm:text-sm">{label}</span>
     </button>
   );
 }

@@ -29,10 +29,10 @@ export default function Main() {
 
         {/* Buttons */}
         <div className="mt-6 flex">
-          <button className="flex-1 bg-blue-600 text-white font-semibold rounded-l-lg">
+          <button className="flex-1 pt-1 pb-1 bg-blue-600 text-white font-semibold rounded-l-lg">
             Rent
           </button>
-          <button className="flex-1 bg-gray-200 text-gray-700 font-semibold rounded-r-lg hover:bg-gray-300">
+          <button className="flex-1 pt-1 pb-1 bg-gray-200 text-gray-700 font-semibold rounded-r-lg hover:bg-gray-300">
             Buy
           </button>
         </div>
