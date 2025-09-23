@@ -11,4 +11,3 @@ const SearchBar = ({ id, placeholder = "Search...", width = "w-64" }) => {
 };
 
 export default SearchBar;
-

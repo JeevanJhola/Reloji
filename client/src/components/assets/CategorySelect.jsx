@@ -9,19 +9,18 @@ const CategorySelect = ({ options, defaultValue, onChange }) => {
   };
 
   return (
-      <select
-        value={selected}
-        onChange={handleChange}
-        className="w-full bg-gray-100 border border-gray-300 rounded-lg px-4 py-3 focus:outline-2 outline-blue-600 text-gray-600"
-      >
-        {options.map((opt, idx) => (
-          <option key={idx} value={opt}>
-            {opt}
-          </option>
-        ))}
-      </select>
+    <select
+      value={selected}
+      onChange={handleChange}
+      className="w-full bg-gray-100 border border-gray-300 rounded-lg px-4 py-3 focus:outline-2 outline-blue-600 text-gray-600"
+    >
+      {options.map((opt, idx) => (
+        <option key={idx} value={opt}>
+          {opt}
+        </option>
+      ))}
+    </select>
   );
 };
 
 export default CategorySelect;
-
