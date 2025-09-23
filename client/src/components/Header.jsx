@@ -5,8 +5,8 @@ import NavButton from "./assets/NavButton";
 
 export default function Header() {
   return (
-    <header className="bg-white shadow-sm">
-      <div className="container mx-auto py-3 px-3">
+    <header className="sticky top-0">
+      <div className="container bg-white/30 backdrop-blur-md mx-auto p-3">
         <div className="flex items-center justify-between ">
           <h1 className="text-3xl font-bold text-blue-600">Reloji</h1>
 
@@ -32,7 +32,7 @@ export default function Header() {
           <SearchBar id="search-mobile" width="w-full" />
         </div>
       </div>
-      <nav className="flex w-full pt-1.5 pb-1.5 border-t-4 border-gray-50">
+      <nav className="flex bg-white shadow-sm w-full pt-1.5 pb-1.5 border-t-4 border-gray-50">
         <NavButton icon={Home} label="Home" />
         <NavButton icon={Compass} label="Discover" />
         <NavButton icon={Users} label="Circle" />
