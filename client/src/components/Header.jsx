@@ -33,9 +33,9 @@ export default function Header() {
         </div>
       </div>
       <nav className="flex bg-white shadow-sm w-full pt-1.5 pb-1.5 border-t-4 border-gray-50">
-        <NavButton icon={Home} label="Home" />
-        <NavButton icon={Compass} label="Discover" />
-        <NavButton icon={Users} label="Circle" />
+        <NavButton to="/" icon={Home} label="Home" />
+        <NavButton to="/discover" icon={Compass} label="Discover" />
+        <NavButton to="/circle" icon={Users} label="Circle" />
       </nav>
     </header>
   );
