@@ -1,12 +1,15 @@
-import React from 'react';
-export default function LenderInitial({Firstname , Lastname}){
-     const FirstChar = Firstname ? Firstname.charAt(0).toUpperCase():"";
-     const LastChar = Lastname ? Lastname.charAt(0).toUpperCase():"";
-     const initials=`${FirstChar}${LastChar}`;
-     return (
-        <div className ="h-12 w-13 rounded-full bg-gray-400 text-black-300 font-sans">
-         {initials}
+import React from "react";
+import LenderInitial from "./ProfilePic.jsx";
+export default function Discover(){
+    return (
+    <div className="min-h-screen flex justify-center  items-start pt-10  gap-5 m-5 bg-gray-100">
+
+        <div className="w-3/4  bg-white shadow-lg rounded-lg p-4">
+          <LenderInitial Firstname="Akinnesh" Lastname="Ravinand" />
+        </div><div className="w-3/4  bg-white shadow-lg rounded-lg p-4">
+          <LenderInitial Firstname="Rahul" Lastname="Tagore" />
         </div>
-     );
-     
- }
+      </div>
+  );
+}
+
