@@ -1,6 +1,6 @@
 import React from "react";
-import SearchBar from "./SearchBar";
-import LenderInitial, { LenderDetails } from "./ProfilePic.jsx";
+import SearchBar from "./assets/SearchBar";
+import LenderInitial, { LenderDetails } from "./assets/ProfilePic.jsx";
 
 export default function Circle() {
   const lenders = [
