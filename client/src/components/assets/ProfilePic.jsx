@@ -14,19 +14,16 @@ export function LenderDetails({ Firstname, Lastname, Location, Phone_number }) {
   return (
     <>
       <div>
-        {" "}
         <span className="font-bold ">Name : </span>
-        {Firstname} {Lastname}{" "}
+        {Firstname} {Lastname}
       </div>
       <div>
-        {" "}
         <span className="font-bold ">Location : </span>
-        {Location}{" "}
+        {Location}
       </div>
       <div>
-        {" "}
         <span className="font-bold ">Phone No : </span>
-        {Phone_number}{" "}
+        {Phone_number}
       </div>
     </>
   );
