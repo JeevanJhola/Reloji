@@ -6,7 +6,7 @@ import {
   Layers,
   UserRoundSearch,
 } from "lucide-react";
-import LenderInitial, { LenderDetails } from "./ProfilePic.jsx";
+import LenderInitial, { LenderDetails } from "./assets/ProfilePic.jsx";
 import SearchBar from "./assets/SearchBar.jsx";
 export default function Discover() {
   const lenders = [
