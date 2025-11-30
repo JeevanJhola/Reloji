@@ -1,4 +1,4 @@
-import CategorySelect from "./CategorySelect";
+import CategorySelect from "./assets/CategorySelect";
 
 export default function Home() {
   const categories = [
