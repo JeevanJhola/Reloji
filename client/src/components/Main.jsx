@@ -1,8 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 
-import HomePage from "./assets/Home";
-import DiscoverPage from "./assets/DiscoverPage";
-import CirclePage from "./assets/CirclePage.jsx";
+import HomePage from "./Home";
+import DiscoverPage from "./DiscoverPage";
+import CirclePage from "./CirclePage.jsx";
 
 export default function Main() {
   return (
