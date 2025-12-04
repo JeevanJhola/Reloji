@@ -14,9 +14,9 @@ export default function Discover() {
 
   useEffect(() => {
     fetch("http://localhost:5000/api/lenders")
-      .then(res => res.json())
-      .then(data => setLenders(data))
-      .catch(err => console.error(err));
+      .then((res) => res.json())
+      .then((data) => setLenders(data))
+      .catch((err) => console.error(err));
   }, []);
   return (
     <>
