@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import path from "path";
 import helloRouter from "./routes/hello.js";
+import lenderRoutes from "./routes/lender.routes.js";
 
 const app = express();
 
@@ -20,6 +21,7 @@ mongoose.connect(MONGO_URI)
 
 // Routes
 app.use("/api/hello", helloRouter);
+app.use("/api/lenders", lenderRoutes);
 
 // Error handling
 app.use((req, res) => res.status(404).json({ error: "Not Found" }));
