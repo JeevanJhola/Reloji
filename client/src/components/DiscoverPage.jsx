@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import {
   Warehouse,
   Hamburger,
@@ -9,27 +10,14 @@ import {
 import LenderInitial, { LenderDetails } from "./assets/ProfilePic.jsx";
 import SearchBar from "./assets/SearchBar.jsx";
 export default function Discover() {
-  const lenders = [
-    {
-      Firstname: "Akinnesh",
-      Lastname: "Ravinand",
-      Location: "Kannur,Kerala",
-      Phone: " +91 xxxxxxxx09",
-    },
-    {
-      Firstname: "Rahul",
-      Lastname: "Tagore",
-      Location: "coorg,Karnataka",
-      Phone: " +91 xxxxxxxx58",
-    },
-    {
-      Firstname: "Farhan",
-      Lastname: "Naushad",
-      Location: "Delhi",
-      Phone: " +91 xxxxxxxx36",
-    },
-  ];
+  const [lenders, setLenders] = useState([]);
 
+  useEffect(() => {
+    fetch("http://localhost:5000/api/lenders")
+      .then(res => res.json())
+      .then(data => setLenders(data))
+      .catch(err => console.error(err));
+  }, []);
   return (
     <>
       <div className="min-h-screen">
