@@ -1,68 +1,36 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import SearchBar from "./assets/SearchBar";
 import LenderInitial, { LenderDetails } from "./assets/ProfilePic.jsx";
 
 export default function Circle() {
-  const lenders = [
-    {
-      Firstname: "Akshay",
-      Lastname: "buntai",
-      Location: "thiruvananthapuram,Kerala",
-      Phone: " +91 xxxxxxxx23",
-    },
-    {
-      Firstname: "Ravi",
-      Lastname: "kumar",
-      Location: "Patna,Bihar",
-      Phone: " +91 xxxxxxxx34",
-    },
-    {
-      Firstname: "Gazine",
-      Lastname: "Perferito",
-      Location: "Ernakulam,Kerala",
-      Phone: " +91 xxxxxxxx56",
-    },
-  ];
-  const Friends = [
-    {
-      Firstname: "Mikasa",
-      Lastname: "Ackerman",
-      Location: "Kannur,Kerala",
-      Phone: " +91 xxxxxxxx64",
-    },
-    {
-      Firstname: "Nihad",
-      Lastname: "Bangade",
-      Location: "coorg,Karnataka",
-      Phone: " +91 xxxxxxxx63",
-    },
-    {
-      Firstname: "Ravi",
-      Lastname: "Acharya",
-      Location: "Delhi",
-      Phone: " +91 xxxxxxxx92",
-    },
-  ];
-  const Recommended = [
-    {
-      Firstname: "Akinnesh",
-      Lastname: "Ravinand",
-      Location: "Kannur,Kerala",
-      Phone: " +91 xxxxxxxx09",
-    },
-    {
-      Firstname: "Rahul",
-      Lastname: "Tagore",
-      Location: "coorg,Karnataka",
-      Phone: " +91 xxxxxxxx58",
-    },
-    {
-      Firstname: "Farhan",
-      Lastname: "Naushad",
-      Location: "Delhi",
-      Phone: " +91 xxxxxxxx36",
-    },
-  ];
+  const [lenders, setLenders] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/api/lenders")
+      .then((res) => res.json())
+      .then((data) => setLenders(data))
+      .catch((err) => console.error(err));
+  }, []);
+
+  const [Friends, setFriends] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/api/friends")
+      .then((res) => res.json())
+      .then((data) => setFriends(data))
+      .catch((err) => console.error(err));
+  }, []);
+
+  const [Recommended, setRecommend] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/api/lenders")
+      .then((res) => res.json())
+      .then((data) => setRecommend(data))
+      .catch((err) => console.error(err));
+  }, []);
+
   return (
     <div className="min-h-screen  ">
       <div className="text-center">
@@ -70,13 +38,13 @@ export default function Circle() {
           id="Search"
           placeholder="Search Renter or User"
           width="w-[80%]"
-          className="bg-white font-gray  text-center font-mono  m-2 rounded-lg p-2"
+          className="bg-white font-gray text-center rounded-lg m-2 p-2"
         />
       </div>
-      <span className="font-3xl bg-white text-center font-serif font-black">
-        Friend List
-      </span>
-      <div className="  p-5 gap-5  grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] auto-rows-min  bg-gray-100">
+      <div className="my-6 px-4">
+        <span className="font-bold text-xl font-sans">Friend List</span>
+      </div>
+      <div className="p-5 grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 bg-gray-100">
         {Friends.map((Friends, index) => (
           <div key={index} className="bg-white shadow-lg  rounded-lg p-4">
             <div className=" flex items-center gap-4">
@@ -96,10 +64,12 @@ export default function Circle() {
           </div>
         ))}
       </div>
-      <span className="font-3xl bg-white font-serif font-black">
-        Frequently Interacted Renters
-      </span>
-      <div className="  p-5 gap-5  grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] auto-rows-min  bg-gray-100">
+      <div className="my-6 px-4">
+        <span className="font-bold text-xl font-sans">
+          Frequently Interacted Renters
+        </span>
+      </div>
+      <div className="p-5 grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 bg-gray-100">
         {lenders.map((lender, index) => (
           <div key={index} className="bg-white shadow-lg  rounded-lg p-4">
             <div className=" flex items-center gap-4">
@@ -119,10 +89,10 @@ export default function Circle() {
           </div>
         ))}
       </div>
-      <span className="font-3xl bg-white  font-serif font-black">
-        Recommende Renters
-      </span>
-      <div className="  p-5 gap-5  grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] auto-rows-min  bg-gray-100">
+      <div className="my-6 px-4">
+        <span className="font-bold text-xl font-sans">Recommended Renters</span>
+      </div>
+      <div className="p-5 grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 bg-gray-100">
         {Recommended.map((Recommended, index) => (
           <div key={index} className="bg-white shadow-lg  rounded-lg p-4">
             <div className=" flex items-center gap-4">

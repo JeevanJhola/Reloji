@@ -6,6 +6,7 @@ import cors from "cors";
 import path from "path";
 import helloRouter from "./routes/hello.js";
 import lenderRoutes from "./routes/lender.routes.js";
+import friendsRoutes from "./routes/friends.routes.js";
 
 const app = express();
 
@@ -15,13 +16,15 @@ app.use(express.json());
 
 // MongoDB connection
 const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017/reloji";
-mongoose.connect(MONGO_URI)
+mongoose
+  .connect(MONGO_URI)
   .then(() => console.log("✅ MongoDB connected"))
-  .catch(err => console.error("❌ MongoDB connection error:", err));
+  .catch((err) => console.error("❌ MongoDB connection error:", err));
 
 // Routes
 app.use("/api/hello", helloRouter);
 app.use("/api/lenders", lenderRoutes);
+app.use("/api/friends", friendsRoutes);
 
 // Error handling
 app.use((req, res) => res.status(404).json({ error: "Not Found" }));
