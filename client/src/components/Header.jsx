@@ -5,8 +5,8 @@ import NavButton from "./assets/NavButton";
 
 export default function Header() {
   return (
-    <header className="sticky top-0">
-      <div className="container bg-white/30 backdrop-blur-md mx-auto p-3">
+    <header className="sticky top-0 bg-white/30 backdrop-blur-md ">
+      <div className="container   mx-auto p-3">
         <div className="flex items-center justify-between ">
           <h1 className="text-3xl font-bold text-blue-600">Reloji</h1>
 
