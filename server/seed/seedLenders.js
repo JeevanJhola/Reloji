@@ -7,9 +7,24 @@ async function seed() {
   await Lender.deleteMany();
 
   await Lender.insertMany([
-    { Firstname: "Akinnesh", Lastname: "Ravinand", Location: "Kannur, Kerala", Phone: "+91 xxxxxxxx09" },
-    { Firstname: "Rahul", Lastname: "Tagore", Location: "Coorg, Karnataka", Phone: "+91 xxxxxxxx58" },
-    { Firstname: "Farhan", Lastname: "Naushad", Location: "Delhi", Phone: "+91 xxxxxxxx36" }
+    {
+      Firstname: "Akinnesh",
+      Lastname: "Ravinand",
+      Location: "Kannur, Kerala",
+      Phone: "+91 xxxxxxxx09",
+    },
+    {
+      Firstname: "Rahul",
+      Lastname: "Tagore",
+      Location: "Coorg, Karnataka",
+      Phone: "+91 xxxxxxxx58",
+    },
+    {
+      Firstname: "Farhan",
+      Lastname: "Naushad",
+      Location: "Delhi",
+      Phone: "+91 xxxxxxxx36",
+    },
   ]);
 
   console.log("Seed successful");
@@ -17,4 +32,3 @@ async function seed() {
 }
 
 seed();
-

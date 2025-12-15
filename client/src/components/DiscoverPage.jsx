@@ -1,27 +1,29 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import {
   Warehouse,
   Hamburger,
   Shovel,
   Layers,
-  UserRoundSearch,
 } from "lucide-react";
 import LenderInitial, { LenderDetails } from "./assets/ProfilePic.jsx";
 import SearchBar from "./assets/SearchBar.jsx";
-export default function Discover() {
-  const [lenders, setLenders] = useState([]);
+import { useLenders } from "../hooks/useLenders.js";
 
-  useEffect(() => {
-    fetch("http://localhost:5000/api/lenders")
-      .then(res => res.json())
-      .then(data => setLenders(data))
-      .catch(err => console.error(err));
-  }, []);
+export default function Discover() {
+  const { lenders, isLoading, error } = useLenders();
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
   return (
     <>
       <div className="min-h-screen">
-        <div className="p-5 grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 bg-gray-100">
+        <div className="p-5 grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 bg-gray-100">
           {lenders.map((lender, index) => (
             <div key={index} className="bg-white shadow-lg rounded-lg p-4">
               <div className="flex items-center gap-4">
