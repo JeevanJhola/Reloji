@@ -1,6 +1,7 @@
 import CategorySelect from "./assets/CategorySelect";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import ProductCard from "./assets/ProductCard";
+import { useProducts } from "../hooks/useProducts";
 
 export default function Home() {
   const categories = [
@@ -19,18 +20,19 @@ export default function Home() {
     "Sydney, Australia",
   ];
 
-  const [products, setProducts] = useState([]);
+  const { products, isLoading, error } = useProducts();
   const [activeId, setActiveId] = useState(null);
-
-  useEffect(() => {
-    fetch("http://localhost:5000/api/products")
-      .then(res => res.json())
-      .then(data => setProducts(data))
-      .catch(err => console.error("Failed to fetch products", err));
-  }, []);
 
   const formatBuyPrice = price => `$${price.toFixed(2)}`;
   const formatRentPrice = price => `$${price}/mo`;
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
 
   return (
     <div className="p-4 space-y-10">

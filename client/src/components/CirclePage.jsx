@@ -1,35 +1,20 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import SearchBar from "./assets/SearchBar";
 import LenderInitial, { LenderDetails } from "./assets/ProfilePic.jsx";
+import { useLenders } from "../hooks/useLenders";
+import { useFriends } from "../hooks/useFriends";
 
 export default function Circle() {
-  const [lenders, setLenders] = useState([]);
+  const { lenders, isLoading: lendersLoading, error: lendersError } = useLenders();
+  const { friends, isLoading: friendsLoading, error: friendsError } = useFriends();
 
-  useEffect(() => {
-    fetch("http://localhost:5000/api/lenders")
-      .then((res) => res.json())
-      .then((data) => setLenders(data))
-      .catch((err) => console.error(err));
-  }, []);
+  if (lendersLoading || friendsLoading) {
+    return <div>Loading...</div>;
+  }
 
-  const [Friends, setFriends] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:5000/api/friends")
-      .then((res) => res.json())
-      .then((data) => setFriends(data))
-      .catch((err) => console.error(err));
-  }, []);
-
-  const [Recommended, setRecommend] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:5000/api/lenders")
-      .then((res) => res.json())
-      .then((data) => setRecommend(data))
-      .catch((err) => console.error(err));
-  }, []);
+  if (lendersError || friendsError) {
+    return <div>Error: {lendersError?.message || friendsError?.message}</div>;
+  }
 
   return (
     <div className="min-h-screen  ">
@@ -45,19 +30,19 @@ export default function Circle() {
         <span className="font-bold text-xl font-sans">Friend List</span>
       </div>
       <div className="p-5 grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 bg-gray-100">
-        {Friends.map((Friends, index) => (
+        {friends.map((friend, index) => (
           <div key={index} className="bg-white shadow-lg  rounded-lg p-4">
             <div className=" flex items-center gap-4">
               <LenderInitial
-                Firstname={Friends.Firstname}
-                Lastname={Friends.Lastname}
+                Firstname={friend.Firstname}
+                Lastname={friend.Lastname}
               />
               <div className="flex flex-col">
                 <LenderDetails
-                  Firstname={Friends.Firstname}
-                  Lastname={Friends.Lastname}
-                  Location={Friends.Location}
-                  Phone_number={Friends.Phone}
+                  Firstname={friend.Firstname}
+                  Lastname={friend.Lastname}
+                  Location={friend.Location}
+                  Phone_number={friend.Phone}
                 />
               </div>
             </div>
@@ -93,19 +78,19 @@ export default function Circle() {
         <span className="font-bold text-xl font-sans">Recommended Renters</span>
       </div>
       <div className="p-5 grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 bg-gray-100">
-        {Recommended.map((Recommended, index) => (
+        {lenders.map((lender, index) => (
           <div key={index} className="bg-white shadow-lg  rounded-lg p-4">
             <div className=" flex items-center gap-4">
               <LenderInitial
-                Firstname={Recommended.Firstname}
-                Lastname={Recommended.Lastname}
+                Firstname={lender.Firstname}
+                Lastname={lender.Lastname}
               />
               <div className="flex flex-col">
                 <LenderDetails
-                  Firstname={Recommended.Firstname}
-                  Lastname={Recommended.Lastname}
-                  Location={Recommended.Location}
-                  Phone_number={Recommended.Phone}
+                  Firstname={lender.Firstname}
+                  Lastname={lender.Lastname}
+                  Location={lender.Location}
+                  Phone_number={lender.Phone}
                 />
               </div>
             </div>

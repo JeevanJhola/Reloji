@@ -4,7 +4,6 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import path from "path";
-import helloRouter from "./routes/hello.js";
 import lenderRoutes from "./routes/lender.routes.js";
 import friendsRoutes from "./routes/friends.routes.js";
 import productRoutes from "./routes/product.routes.js";
@@ -23,7 +22,6 @@ mongoose
   .catch((err) => console.error("❌ MongoDB connection error:", err));
 
 // Routes
-app.use("/api/hello", helloRouter);
 app.use("/api/lenders", lenderRoutes);
 app.use("/api/friends", friendsRoutes);
 app.use("/api/products", productRoutes);
