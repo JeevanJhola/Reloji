@@ -15,10 +15,22 @@ app.use(cors());
 app.use(express.json());
 
 // MongoDB connection
-const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017/reloji";
-mongoose
-  .connect(MONGO_URI)
-  .then(() => console.log("✅ MongoDB connected"))
+const NODE_ENV = process.env.NODE_ENV || "development";
+
+let MONGO_URI;
+
+if (NODE_ENV === "production") {
+  MONGO_URI = process.env.MONGO_URI_PROD;
+} else {
+  MONGO_URI = process.env.MONGO_URI_DEV;
+}
+
+if (!MONGO_URI) {
+  throw new Error("Mongo URI not defined for this environment");
+}
+
+mongoose.connect(MONGO_URI)
+  .then(() => console.log(`✅ MongoDB connected (${NODE_ENV})`))
   .catch((err) => console.error("❌ MongoDB connection error:", err));
 
 // Routes
