@@ -1,14 +1,14 @@
 import Header from "./components/Header";
-import Main from "./components/Main";
+import AppRoutes from "./routes/AppRoutes";
 
 function App() {
   return (
     <div className="bg-gray-50 min-h-screen">
       <Header />
-
-      <Main />
+      <AppRoutes />
     </div>
   );
 }
 
 export default App;
+

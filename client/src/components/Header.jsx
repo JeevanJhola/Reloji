@@ -1,12 +1,13 @@
 import ReusableButton from "./assets/ReusableButton";
+import { Link } from "react-router-dom";
 import SearchBar from "./assets/SearchBar";
 import { Plus, Home, Compass, Users, User } from "lucide-react";
 import NavButton from "./assets/NavButton";
 
 export default function Header() {
   return (
-    <header className="sticky top-0">
-      <div className="container bg-white/30 backdrop-blur-md mx-auto p-3">
+    <header className="sticky top-0 bg-white/30 backdrop-blur-md ">
+      <div className="container   mx-auto p-3">
         <div className="flex items-center justify-between ">
           <h1 className="text-3xl font-bold text-blue-600">Reloji</h1>
 
@@ -17,9 +18,11 @@ export default function Header() {
 
           <div className="flex items-center space-x-3">
             {/* Plus button */}
+            <Link to="/add-item">
             <ReusableButton color="blue">
               <Plus className="w-5 h-5 text-white" strokeWidth={2.5} />
             </ReusableButton>
+            </Link>
 
             {/* User button */}
             <ReusableButton color="gray">

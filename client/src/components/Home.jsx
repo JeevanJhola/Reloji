@@ -1,4 +1,7 @@
 import CategorySelect from "./assets/CategorySelect";
+import React, { useState } from "react";
+import ProductCard from "./assets/ProductCard";
+import { useProducts } from "../hooks/useProducts";
 
 export default function Home() {
   const categories = [
@@ -8,6 +11,7 @@ export default function Home() {
     "Vehicles",
     "Real Estate",
   ];
+
   const locations = [
     "All Locations",
     "New York, USA",
@@ -16,26 +20,47 @@ export default function Home() {
     "Sydney, Australia",
   ];
 
-  return (
-    <div className="p-4">
-      <div className="bg-white p-8 rounded-xl shadow-2xl ">
-        <div className="space-y-4">
-          {/* Category Dropdown */}
-          <CategorySelect options={categories} defaultValue="All Categories" />
+  const { products, isLoading, error } = useProducts();
+  const [activeId, setActiveId] = useState(null);
 
-          {/* Location Dropdown */}
+  const formatBuyPrice = price => `$${price.toFixed(2)}`;
+  const formatRentPrice = price => `$${price}/mo`;
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  return (
+    <div className="p-4 space-y-10">
+      {/* Filters */}
+      <div className="bg-white p-8 rounded-xl shadow-2xl">
+        <div className="space-y-4">
+          <CategorySelect options={categories} defaultValue="All Categories" />
           <CategorySelect options={locations} defaultValue="All Locations" />
         </div>
+      </div>
 
-        {/* Buttons */}
-        <div className="mt-6 flex">
-          <button className="flex-1 pt-1 pb-1 bg-blue-600 text-white font-semibold rounded-l-lg">
-            Rent
-          </button>
-          <button className="flex-1 pt-1 pb-1 bg-gray-200 text-gray-700 font-semibold rounded-r-lg hover:bg-gray-300">
-            Buy
-          </button>
-        </div>
+      {/* Products */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 justify-items-center">
+        {products.map((product) => (
+          <ProductCard
+            key={product._id}
+            id={product._id}
+            name={product.name}
+            category={product.category}
+            imageUrl={`http://localhost:5000${product.image}`}
+            buyPrice={formatBuyPrice(product.buyPrice)}
+            rentPrice={formatRentPrice(product.rentPrice)}
+            rentTerm={product.rentTerm}
+            isDimmed={activeId !== null && activeId !== product._id}
+            onHover={setActiveId}
+            onLeave={() => setActiveId(null)}
+          />
+        ))}
       </div>
     </div>
   );
