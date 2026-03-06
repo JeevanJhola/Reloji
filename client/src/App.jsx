@@ -1,13 +1,16 @@
 import Header from "./components/Header";
-import Main from "./components/Main";
+import AppRoutes from "./routes/AppRoutes";
+import { AuthProvider } from "./auth/AuthContext";
 
 function App() {
   return (
-    <div className="bg-gray-50 min-h-screen">
-      <Header />
+    <AuthProvider>
+      <div className="bg-gray-50 min-h-screen">
+        <Header />
 
-      <Main />
-    </div>
+        <Main />
+      </div>
+    </AuthProvider>
   );
 }
 

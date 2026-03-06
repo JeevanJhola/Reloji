@@ -1,4 +1,4 @@
-export default function ReusableButton({ color = "blue", children }) {
+export default function ReusableButton({ color = "blue", children, onClick }) {
   const baseClasses =
     "flex items-center justify-center w-10 h-10 rounded-full shadow-md transition-transform transform hover:scale-105 focus:outline-none";
 
@@ -9,6 +9,7 @@ export default function ReusableButton({ color = "blue", children }) {
 
   return (
     <button
+      onClick={onClick}
       className={`${baseClasses} ${colorClasses[color] || colorClasses.blue}`}
     >
       {children}

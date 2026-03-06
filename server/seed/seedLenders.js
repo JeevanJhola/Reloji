@@ -1,19 +1,43 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 import mongoose from "mongoose";
 import Lender from "../models/lender.model.js";
 
-mongoose.connect("mongodb://localhost:27017/reloji");
-
 async function seed() {
-  await Lender.deleteMany();
+  try {
+    await mongoose.connect(process.env.MONGO_URI_DEV);
 
-  await Lender.insertMany([
-    { Firstname: "Akinnesh", Lastname: "Ravinand", Location: "Kannur, Kerala", Phone: "+91 xxxxxxxx09" },
-    { Firstname: "Rahul", Lastname: "Tagore", Location: "Coorg, Karnataka", Phone: "+91 xxxxxxxx58" },
-    { Firstname: "Farhan", Lastname: "Naushad", Location: "Delhi", Phone: "+91 xxxxxxxx36" }
-  ]);
+    await Lender.deleteMany();
 
-  console.log("Seed successful");
-  mongoose.connection.close();
+    await Lender.insertMany([
+      {
+        Firstname: "Akinnesh",
+        Lastname: "Ravinand",
+        Location: "Kannur, Kerala",
+        Phone: "+91xxxxxxxx09",
+      },
+      {
+        Firstname: "Rahul",
+        Lastname: "Tagore",
+        Location: "Coorg, Karnataka",
+        Phone: "+91xxxxxxxx58",
+      },
+      {
+        Firstname: "Farhan",
+        Lastname: "Naushad",
+        Location: "Delhi",
+        Phone: "+91xxxxxxxx36",
+      },
+    ]);
+
+    console.log("Lender seed successful");
+
+  } catch (err) {
+    console.error("Seed failed:", err);
+  } finally {
+    mongoose.connection.close();
+  }
 }
 
 seed();

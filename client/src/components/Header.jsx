@@ -1,9 +1,22 @@
 import ReusableButton from "./assets/ReusableButton";
+import { Link, useNavigate } from "react-router-dom";
 import SearchBar from "./assets/SearchBar";
 import { Plus, Home, Compass, Users, User } from "lucide-react";
 import NavButton from "./assets/NavButton";
+import { useAuth } from "../auth/AuthContext";
 
 export default function Header() {
+  const { user } = useAuth();
+  const navigate = useNavigate();
+
+  const handle_user_click = () => {
+    if (!user) {
+      navigate("/auth");
+    }
+    else {
+      navigate("/profile");
+    }
+  }
   return (
     <header className="sticky top-0">
       <div className="container bg-white/30 backdrop-blur-md mx-auto p-3">
@@ -22,7 +35,7 @@ export default function Header() {
             </ReusableButton>
 
             {/* User button */}
-            <ReusableButton color="gray">
+            <ReusableButton color="gray" onClick={handle_user_click}>
               <User className="w-5 h-5 text-gray-600" />
             </ReusableButton>
           </div>
